@@ -13,5 +13,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\components\shared\" />
+    <Folder Include="src\views\" />
   </ItemGroup>
 </Project>
