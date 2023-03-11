@@ -28,16 +28,48 @@ export default class Registration extends Component {
         }
     }
 
-    onChangeFirstName(e) {this.setState({firstName: e.target.value});}
-    onChangeLastName(e) { this.setState({ lastName: e.target.value }); }
-    onChangeEmail(e) { this.setState({ email: e.target.value }); }
-    onChangeGender(e) { this.setState({ gender: e.target.value }); }
-    onChangeUserName(e) { this.setState({ userName: e.target.value }); }
-    onChangePassword(e) { this.setState({ password: e.target.value }); }
-    onChangeConfirmPassword(e) { this.setState({ confirmPassword: e.target.value }); }
+    onChangeFirstName(event) {this.setState({firstName: event.target.value});}
+    onChangeLastName(event) { this.setState({ lastName: event.target.value }); }
+    onChangeEmail(event) { this.setState({ email: event.target.value }); }
+    onChangeGender(event) { this.setState({ gender: event.target.value }); }
+    onChangeUserName(event) { this.setState({ userName: event.target.value }); }
+    onChangePassword(event) { this.setState({ password: event.target.value }); }
+    onChangeConfirmPassword(event) { this.setState({ confirmPassword: event.target.value }); }
+
+    register(event) {
+        fetch('https://localhost:3000/Api/Registration/InsertUser', {
+            method: 'post',
+            headers:
+            {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify
+                ({
+                    firstName: this.state.firstName,
+                    lastName: this.state.lastName,
+                    email: this.state.email,
+                    gender: this.state.gender,
+                    userName: this.state.userName,
+                    password: this.state.password
+                })
+        }).then((Response) => Response.json()).then(Result);
+        {
+            if (Result.Status == 'Success')
+            {
+                this.props.history.push("/Dashboard");
+            }
+            else
+            {
+                alert('Sorry !!! Un-authenticated User !');
+            }
+        }
+    }
 
     onSubmit(e) {
         e.preventDefault();
+
+        //check if the password matches the confirmed password
         if (this.state.password === this.state.passwordConform) {
             const obj = {
                 firstName: this.state.firstName,

@@ -1,6 +1,6 @@
 ﻿namespace webapi.Data.Entities
 {
-    public class User
+    public class Register
     {
         public int Id { get; set; }
         public string? FirstName { get; set; }

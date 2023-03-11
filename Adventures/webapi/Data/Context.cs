@@ -8,6 +8,6 @@ namespace webapi.Data
         public Context(DbContextOptions<Context> context) : base(context)
         {
         }
-        public DbSet<User> UserLogin { get; set; }
+        public DbSet<Register> UserLogin { get; set; }
     }
 }
