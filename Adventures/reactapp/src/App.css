@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.bg {
+    background-image: url(./images/LoginPageBG.jpg);
+    width: 1920px;
+    height: 1080px;
+    background-size: cover;
+}
+
+.mt-0 {
+
+}
+

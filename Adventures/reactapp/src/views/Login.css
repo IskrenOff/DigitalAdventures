@@ -1,0 +1,27 @@
+﻿.header-auth {
+    display: inline-flex;
+    text-decoration: none;
+    color: rgb(10, 10, 10);
+  }
+  
+  .header-auth a {
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .login-input {
+    width: 300px;
+  }
+.box {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-100%, -50%);
+    width: 25rem;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 0.625rem;
+}

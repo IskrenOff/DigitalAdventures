@@ -1,0 +1,17 @@
+﻿.header-auth {
+    display: inline-flex;
+    text-decoration: none;
+    color: rgb(10, 10, 10);
+  }
+  
+  .header-auth a {
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+    color: rgb(10, 10, 10);
+  }
+  
+  .login-input {
+    width: 300px;
+  }
+  

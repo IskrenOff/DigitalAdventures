@@ -1,4 +1,6 @@
-﻿namespace webapi.Data.Entities
+﻿using Newtonsoft.Json;
+
+namespace webapi.Data.Entities
 {
     public class Register
     {

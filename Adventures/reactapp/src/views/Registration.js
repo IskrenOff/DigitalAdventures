@@ -1,7 +1,7 @@
 
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import axios from 'axios';
-
+import { useFormik } from 'formik';
 
 export default class Registration extends Component {
 
@@ -28,6 +28,7 @@ export default class Registration extends Component {
         }
     }
 
+
     onChangeFirstName(event) {this.setState({firstName: event.target.value});}
     onChangeLastName(event) { this.setState({ lastName: event.target.value }); }
     onChangeEmail(event) { this.setState({ email: event.target.value }); }
@@ -36,8 +37,9 @@ export default class Registration extends Component {
     onChangePassword(event) { this.setState({ password: event.target.value }); }
     onChangeConfirmPassword(event) { this.setState({ confirmPassword: event.target.value }); }
 
+
     register(event) {
-        fetch('https://localhost:3000/Api/Registration/InsertUser', {
+        fetch('https://localhost:3000/Api/Registration', {
             method: 'post',
             headers:
             {
@@ -53,17 +55,7 @@ export default class Registration extends Component {
                     userName: this.state.userName,
                     password: this.state.password
                 })
-        }).then((Response) => Response.json()).then(Result);
-        {
-            if (Result.Status == 'Success')
-            {
-                this.props.history.push("/Dashboard");
-            }
-            else
-            {
-                alert('Sorry !!! Un-authenticated User !');
-            }
-        }
+        }).then((Response) => Response.json());
     }
 
     onSubmit(e) {
@@ -100,6 +92,44 @@ export default class Registration extends Component {
         }
     }
 
+//function RegistrationForm() {
+//    const [firstName, setFirstName] = useState('');
+//    const [lastName, setLastName] = useState('');
+//    const [email, setEmail] = useState('');
+//    const [userName, setUserName] = useState('');
+//    const [password, setPassword] = useState('');
+//    const [confirmPassword, setConfirmPassword] = useState('');
+
+//    function handleSubmit(event) {
+//        event.preventDefauult();
+
+//        const regData = {
+//            firstName,
+//            lastName,
+//            email,
+//            userName,
+//            password,
+//            confirmPassword
+//        };
+
+//        fetch('/api/Registration', {
+//            method: 'POST',
+//            headers: {
+//                'Content-Type': 'application/json',
+//            },
+//            body: JSON.stringify(regData),
+//        })
+//            .then((response) => response.json())
+//            .then((regData) => {
+//                console.log('Success:', regData);
+//            })
+//            .catch((error) => {
+//                console.error('Error:', error);
+//            });
+//    }
+//}
+
+
     render() {
         return (
             <form>
@@ -133,15 +163,15 @@ export default class Registration extends Component {
                         value={this.state.email}
                         onChange={this.onChangeEmail}
                     />
-                </div>
+                </div>              
                 <div className="mb-3">
-                    <label>Gender</label>
+                    <label>UserName</label>
                     <input
-                        type="gender"
+                        type="username"
                         className="form-control"
-                        placeholder="Gender"
-                        value={this.state.gender}
-                        onChange={this.onChangeGender}
+                        placeholder="Enter UserName"
+                        value={this.state.userName}
+                        onChange={this.onChangeUserName}
                     />
                 </div>
                 <div className="mb-3">
@@ -168,7 +198,7 @@ export default class Registration extends Component {
                     <button
                         type="submit"
                         className="btn btn-primary"
-                        onClick={this.onSubmit}> Sign Up                    
+                        onClick={this.onSubmit}> Sign Up
                     </button>
                 </div>
                 <p className="forgot-password text-right">
@@ -178,3 +208,4 @@ export default class Registration extends Component {
         );
     }
 }
+

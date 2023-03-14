@@ -1,16 +1,26 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Serialization;
+using webapi.Data;
+using webapi.Data.Entities;
+using webapi.Models;
 
 namespace webapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LoginController : ControllerBase
+    public class RegistrationController : ControllerBase
     {
-       
+        [HttpPost]
+        public IActionResult Register([FromBody] UserModel data )
+        {
+            if (string.RegistrationController(data.FirstName))
+            {
+                return RegistrationController(new { message = "Name is required." });
+            }
 
-
+            return Ok(new { message = "Registration successful." });
+        }
 
 
 
