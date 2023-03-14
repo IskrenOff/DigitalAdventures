@@ -17,8 +17,8 @@
 .box {
     position: absolute;
     top: 50%;
-    left: 70%;
-    transform: translate(-100%, -50%);
+    right: 50%;
+    transform: translate(-80%, -50%);
     width: 25rem;
     padding: 2.5rem;
     box-sizing: border-box;

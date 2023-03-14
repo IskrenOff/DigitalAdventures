@@ -73,10 +73,7 @@ export const editProfileSchema = object({
         .trim()
         .notRequired(),
     email: string('Enter your email').email('Enter a valid email').required('Email is required'),
-    //phoneNumber: string()
-    //    .matches(PHONE_REGEX, 'Phone number is not valid')
-    //    .min(10, 'The number must be at least 10 digits')
-    //    .required('Phone number is required'),
+
 });
 
 export const changePasswordSchema = object({

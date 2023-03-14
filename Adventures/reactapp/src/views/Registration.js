@@ -2,6 +2,7 @@
 import React, { Component, useState } from "react";
 import axios from 'axios';
 import { useFormik } from 'formik';
+import { NavLink } from 'react-router-dom';
 
 export default class Registration extends Component {
 
@@ -132,7 +133,8 @@ export default class Registration extends Component {
 
     render() {
         return (
-            <form>
+            <form className="box">
+                <NavLink to={'/login'}>Login</NavLink>
                 <h3>Registration</h3>
                 <div className="mb-3">
                     <label>First name</label>

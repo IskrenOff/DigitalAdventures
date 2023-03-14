@@ -15,8 +15,8 @@ import Registration from './views/Registration';
 function App() {
     return (
         <Router>
-            <div className="App">
-            <div className = "bg">
+            <div className="App bg">
+            
                 <nav className="navbar navbar-expand-lg navbar-light fixed-top">
                     <div className="container">
                         <Link className="navbar-brand" to={'/Login'}>
@@ -38,17 +38,15 @@ function App() {
                         </div>
                     </div>
                     </nav>
-                    <div className="auth-wrapper">
-                    <div className="auth-inner">
+                    <div className="auth-wrapper">                  
                         <Routes>
                             <Route exact path="/" element={<Login />} />
                             <Route path="/Login" element={<Login />} />
                             <Route path="/Registration" element={<Registration />} />
                         </Routes>
                     </div>
-                    </div>
                 </div>
-            </div>
+            
         </Router>
     )
 }
